@@ -5,7 +5,16 @@ import os
 import time
 from pdf_processor import extract_text_from_pdf
 from summarizer import ResearchPaperSummarizer
-
+# At the bottom of app.py
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 8501))
+    
+    # Configure Streamlit for Railway
+    st.run(
+        server_address='0.0.0.0',
+        server_port=port,
+    )
 # ---------- PAGE CONFIGURATION (MUST BE FIRST STREAMLIT COMMAND) ----------
 st.set_page_config(
     page_title="Research Paper Summarizer | AI-Powered",
