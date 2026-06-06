@@ -6,14 +6,19 @@ import time
 from pdf_processor import extract_text_from_pdf
 from summarizer import ResearchPaperSummarizer
 # At the bottom of app.py
+# Add this at the very bottom of app.py
 if __name__ == "__main__":
     import os
-    port = int(os.environ.get("PORT", 8501))
+    import sys
     
-    # Configure Streamlit for Railway
+    # Get the port from Railway's environment variable
+    # Default to 8080 if not found (since Railway shows 8080)
+    port = int(os.environ.get("PORT", 8080))
+    
+    # Streamlit configuration for deployment
     st.run(
-        server_address='0.0.0.0',
         server_port=port,
+        server_address='0.0.0.0',
     )
 # ---------- PAGE CONFIGURATION (MUST BE FIRST STREAMLIT COMMAND) ----------
 st.set_page_config(
