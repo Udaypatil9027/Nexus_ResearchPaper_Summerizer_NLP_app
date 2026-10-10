@@ -5,8 +5,7 @@ import os
 import time
 from pdf_processor import extract_text_from_pdf
 from summarizer import ResearchPaperSummarizer
-# At the bottom of app.py
-# Add this at the very bottom of app.py
+
 if __name__ == "__main__":
     import os
     import sys
